@@ -1,0 +1,38 @@
+#include<iostream>
+
+using namespace std;
+int main()
+{
+    FILE*file = fopen ("file.txt","r");
+    FILE*file2 = fopen ("file2.txt","a");
+    if(file2 == NULL)
+    {
+        cout<<"file not found";
+        return 1;
+    }
+    else if (file == NULL)
+    {
+        cout<<"file not found";
+        return 1;
+    }
+
+    char ch = fgetc(file);
+    while(ch!==EOF)
+    {
+        fprintf(file,"%c", ch);
+        ch = fget(file);
+    }
+
+    fclose(file);
+    fclose(file2);
+    FILE*file3 = fopen("file2.txt", "r");
+    char ch2 = fgetc (file3);
+    while (ch2! = EOF)
+    {
+        printf("%c", ch2);
+        ch2 = fget (file3);
+        fclose (file3);
+    }
+
+
+}
